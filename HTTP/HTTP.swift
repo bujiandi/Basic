@@ -5,6 +5,9 @@
 //  Created by 李招利 on 2018/9/30.
 //
 
+#if canImport(Basic)
+import Basic
+#endif
 
 public struct HTTP {
     

@@ -46,44 +46,44 @@ extension JSON.Object: _ObjectiveCBridgeable {
 
 
 extension JSON.Array: ReferenceConvertible {
-    
+
     public typealias ReferenceType = NSArray
-    
+
 }
 
 extension JSON.Array: _ObjectiveCBridgeable {
-    
+
     public typealias _ObjectiveCType = NSArray
-    
+
     public func _bridgeToObjectiveC() -> NSArray {
         return rawValue.map { $0._bridgeToObjectiveC() }._bridgeToObjectiveC()
     }
-    
+
     public static func _forceBridgeFromObjectiveC(_ source: NSArray, result: inout JSON.Array?) {
         result = JSON.Array(source.map { JSON.from($0) })
     }
-    
+
     public static func _conditionallyBridgeFromObjectiveC(_ source: NSArray, result: inout JSON.Array?) -> Bool {
         result = JSON.Array(source.map { JSON.from($0) })
         return true
     }
-    
+
     public static func _unconditionallyBridgeFromObjectiveC(_ source: NSArray?) -> JSON.Array {
         return JSON.Array(source?.map { JSON.from($0) } ?? [])
     }
-    
+
 }
 
 extension JSON.Number: ReferenceConvertible {
-    
+
     public typealias ReferenceType = NSNumber
-    
+
 }
 
 extension JSON.Number: _ObjectiveCBridgeable {
-    
+
     public typealias _ObjectiveCType = NSNumber
-    
+
     public func _bridgeToObjectiveC() -> NSNumber {
         if isInteger {
             return uint64Value._bridgeToObjectiveC() // as NSNumber
@@ -93,16 +93,16 @@ extension JSON.Number: _ObjectiveCBridgeable {
             return doubleValue._bridgeToObjectiveC()
         }
     }
-    
+
     public static func _forceBridgeFromObjectiveC(_ source: NSNumber, result: inout JSON.Number?) {
         result = JSON.Number(source)
     }
-    
+
     public static func _conditionallyBridgeFromObjectiveC(_ source: NSNumber, result: inout JSON.Number?) -> Bool {
         result = JSON.Number(source)
         return true
     }
-    
+
     public static func _unconditionallyBridgeFromObjectiveC(_ source: NSNumber?) -> JSON.Number {
         if let value = source {
             return JSON.Number(value)
@@ -113,7 +113,7 @@ extension JSON.Number: _ObjectiveCBridgeable {
 }
 
 extension JSON: _ObjectiveCBridgeable {
-    
+
     public func _bridgeToObjectiveC() -> NSObject {
         switch self {
         case .null:                 return NSNull()
@@ -125,7 +125,7 @@ extension JSON: _ObjectiveCBridgeable {
         case .error(let error, _):  return error as NSError
         }
     }
-    
+
     public static func _forceBridgeFromObjectiveC(_ source: NSObject, result: inout JSON?) {
         result = JSON.from(source)
     }

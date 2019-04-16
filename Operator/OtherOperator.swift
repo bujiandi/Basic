@@ -8,7 +8,9 @@
 //  那些曾被Swift删除但是很有用的运算符
 //
 
+#if canImport(CoreGraphics)
 import CoreGraphics
+#endif
 import Foundation
 
 precedencegroup NilWrapPrecedence {
@@ -20,53 +22,46 @@ precedencegroup NilWrapPrecedence {
 infix operator ??? : NilWrapPrecedence
 infix operator =? : AssignmentPrecedence
 
-@inline(__always)
-public func ??(lhs:Bool, rhs: @autoclosure () -> Void) {
+@inlinable public func ??(lhs:Bool, rhs: @autoclosure () -> Void) {
     if lhs { rhs() }
 }
 
-@inline(__always)
-public func ??<T>(lhs:Bool, rhs: @autoclosure () -> T?) -> T? {
+@inlinable public func ??<T>(lhs:Bool, rhs: @autoclosure () -> T?) -> T? {
     return lhs ? rhs() : nil
 }
 
-@inline(__always)
-public func ???<T>(lhs: @autoclosure () -> T?, rhs: Bool) -> T? {
+@inlinable public func ???<T>(lhs: @autoclosure () -> T?, rhs: Bool) -> T? {
     return rhs ? lhs() : nil
 }
 
-@inline(__always)
-public func ???<T>(lhs: @autoclosure () -> T, rhs: Bool) -> T? {
+@inlinable public func ???<T>(lhs: @autoclosure () -> T, rhs: Bool) -> T? {
     return rhs ? lhs() : nil
 }
 
+#if canImport(CoreGraphics)
 /// 可选赋值运算符 有则赋值, 没有忽略
-@inline(__always)
-public func =?(lhs: inout CGFloat, rhs: Double?) {
+@inlinable public func =?(lhs: inout CGFloat, rhs: Double?) {
     if let v = rhs { lhs = CGFloat(v) }
 }
 
 /// 可选赋值运算符 有则赋值, 没有忽略
-@inline(__always)
-public func =?(lhs: inout CGFloat?, rhs: Double?) {
+@inlinable public func =?(lhs: inout CGFloat?, rhs: Double?) {
     if let v = rhs { lhs = CGFloat(v) }
 }
+#endif
 
 /// 可选赋值运算符 有则赋值, 没有忽略
-@inline(__always)
-public func =?<T>(lhs: inout T, rhs: T?) {
+@inlinable public func =?<T>(lhs: inout T, rhs: T?) {
     if let v = rhs { lhs = v }
 }
 
 /// 可选赋值运算符 有则赋值, 没有忽略
-@inline(__always)
-public func =?<T>(lhs: inout T?, rhs: T?) {
+@inlinable public func =?<T>(lhs: inout T?, rhs: T?) {
     if let v = rhs { lhs = v }
 }
 
 /// 可选值相乘
-@inline(__always)
-public func *<T>(lhs: T?, rhs: T) -> T? where T : FloatingPoint {
+@inlinable public func *<T>(lhs: T?, rhs: T) -> T? where T : FloatingPoint {
     if let v = lhs { return v * rhs }
     return nil
 }

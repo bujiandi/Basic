@@ -36,82 +36,68 @@ extension Double    : Calculable {}
 extension CGFloat   : Calculable {}
 extension CGPoint   : Calculable {
     
-    @inline(__always)
-    public static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+    //@inline(__always)
+    @inlinable public static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
     }
     
-    @inline(__always)
-    public static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+    @inlinable public static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
     }
     
-    @inline(__always)
-    public static func * (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+    @inlinable public static func * (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x * rhs.x, y: lhs.y * rhs.y)
     }
     
-    @inline(__always)
-    public static func / (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+    @inlinable public static func / (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x / rhs.x, y: lhs.y / rhs.y)
     }
     
-    @inline(__always)
-    public static func < (lhs: CGPoint, rhs: CGPoint) -> Bool {
+    @inlinable public static func < (lhs: CGPoint, rhs: CGPoint) -> Bool {
         return lhs.x < rhs.x && lhs.y < rhs.y
     }
 }
 extension CGSize    : Calculable {
     
-    @inline(__always)
-    public static func + (lhs: CGSize, rhs: CGSize) -> CGSize {
+    @inlinable public static func + (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
     }
     
-    @inline(__always)
-    public static func - (lhs: CGSize, rhs: CGSize) -> CGSize {
+    @inlinable public static func - (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height)
     }
     
-    @inline(__always)
-    public static func * (lhs: CGSize, rhs: CGSize) -> CGSize {
+    @inlinable public static func * (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width * rhs.width, height: lhs.height * rhs.height)
     }
     
-    @inline(__always)
-    public static func / (lhs: CGSize, rhs: CGSize) -> CGSize {
+    @inlinable public static func / (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width / rhs.width, height: lhs.height / rhs.height)
     }
     
-    @inline(__always)
-    public static func < (lhs: CGSize, rhs: CGSize) -> Bool {
+    @inlinable public static func < (lhs: CGSize, rhs: CGSize) -> Bool {
         return lhs.width < rhs.width && lhs.height < rhs.height
     }
 }
 extension CGRect    : Calculable {
     
-    @inline(__always)
-    public static func + (lhs: CGRect, rhs: CGRect) -> CGRect {
+    @inlinable public static func + (lhs: CGRect, rhs: CGRect) -> CGRect {
         return CGRect(origin: lhs.origin + rhs.origin, size: lhs.size + rhs.size)
     }
     
-    @inline(__always)
-    public static func - (lhs: CGRect, rhs: CGRect) -> CGRect {
+    @inlinable public static func - (lhs: CGRect, rhs: CGRect) -> CGRect {
         return CGRect(origin: lhs.origin - rhs.origin, size: lhs.size - rhs.size)
     }
     
-    @inline(__always)
-    public static func * (lhs: CGRect, rhs: CGRect) -> CGRect {
+    @inlinable public static func * (lhs: CGRect, rhs: CGRect) -> CGRect {
         return CGRect(origin: lhs.origin * rhs.origin, size: lhs.size * rhs.size)
     }
     
-    @inline(__always)
-    public static func / (lhs: CGRect, rhs: CGRect) -> CGRect {
+    @inlinable public static func / (lhs: CGRect, rhs: CGRect) -> CGRect {
         return CGRect(origin: lhs.origin / rhs.origin, size: lhs.size / rhs.size)
     }
     
-    @inline(__always)
-    public static func < (lhs: CGRect, rhs: CGRect) -> Bool {
+    @inlinable public static func < (lhs: CGRect, rhs: CGRect) -> Bool {
         return lhs.origin < rhs.origin && lhs.size < rhs.size
     }
 }

@@ -23,9 +23,9 @@ extension TimeInterval {
 extension Date {
     
     
-//    public static func +(lhs: Date, rhs: TimeInterval) -> Date {
-//        return Date(timeInterval: rhs, since:lhs)
-//    }
+    public static func +(lhs: Date, rhs: TimeInterval) -> Date {
+        return Date(timeInterval: rhs, since:lhs)
+    }
     public static func -(lhs: Date, rhs: TimeInterval) -> Date {
         return Date(timeInterval: -rhs, since:lhs)
     }
@@ -40,9 +40,9 @@ extension Date {
     public static func -(lhs: Date, rhs: Date) -> TimeInterval {
         return lhs.timeIntervalSince1970 - rhs.timeIntervalSince1970
     }
-    public static func -(lhs: Date, rhs: NSDate) -> TimeInterval {
-        return lhs.timeIntervalSince1970 - rhs.timeIntervalSince1970
-    }
+//    public static func -(lhs: Date, rhs: NSDate) -> TimeInterval {
+//        return lhs.timeIntervalSince1970 - rhs.timeIntervalSince1970
+//    }
 }
 
 extension NSDate {

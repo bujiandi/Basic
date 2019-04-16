@@ -8,6 +8,17 @@
 
 import Foundation
 
+#if canImport(Basic)
+
+extension Optional where Wrapped == JSON {
+    
+    public var safeUnwrap:Wrapped {
+        return self ?? .null
+    }
+}
+
+#endif
+
 extension JSON {
     
     public var array:[JSON] {

@@ -5,7 +5,9 @@
 //  Created by Steven on 2017/9/19.
 //
 //
-
+#if canImport(Operator)
+import Operator
+#endif
 /// 数据监听器
 public final class Listener<T> {
     
@@ -134,6 +136,7 @@ extension Listener {
 
 }
 
+#if canImport(Operator)
 
 extension Listener {
     
@@ -158,6 +161,7 @@ extension Listener {
         }
     }
 }
+#endif
 
 
 extension Listener : CustomStringConvertible where T : CustomStringConvertible {

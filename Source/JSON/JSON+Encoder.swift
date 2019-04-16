@@ -862,14 +862,14 @@ extension JSON {
     }
     
     public init(_ date:Date) {
-        self = JSON.from(date)
+        self = JSON.from(date: date)
     }
     
     public init<T : Decodable>(_ value:T?) {
-        self = JSON.from(value)
+        self = JSON.from(decodable: value)
     }
     
-    internal static func from(_ data:Data) -> JSON {
+    internal static func from(data:Data) -> JSON {
         switch Encoder.DefaultStrategy.data {
         case .custom(let closure):
             let options = Encoder._Options(dateEncodingStrategy: Encoder.DefaultStrategy.date,
@@ -896,7 +896,7 @@ extension JSON {
         }
     }
     
-    internal static func from(_ date:Date) -> JSON {
+    internal static func from(date:Date) -> JSON {
         switch Encoder.DefaultStrategy.date {
         case .millisecondsSince1970:
             return JSON.number(Number(date.timeIntervalSince1970 * 1000))
@@ -933,7 +933,7 @@ extension JSON {
         }
     }
     
-    internal static func from<T : Decodable>(_ value:T?) -> JSON {
+    internal static func from<T : Decodable>(decodable value:T?) -> JSON {
         #if DEPLOYMENT_RUNTIME_SWIFT
         if value == nil {
             return JSON.null

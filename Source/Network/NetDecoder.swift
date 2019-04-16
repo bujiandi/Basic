@@ -6,6 +6,11 @@
 //  Copyright © 2018年 慧趣小歪. All rights reserved.
 //
 
+
+#if canImport(JSON)
+import JSON
+#endif
+
 import Foundation
 
 public enum NetResponseError : Error {

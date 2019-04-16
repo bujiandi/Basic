@@ -5,7 +5,9 @@
 //  Created by 李招利 on 2018/9/30.
 //
 
-
+#if canImport(Basic)
+import Basic
+#endif
 
 extension HTTP.Queue {
     
@@ -274,13 +276,13 @@ extension HTTP.Queue {
     
     public func change(state:Listener<HTTP.State>) {
         
-        _states <- WeakContainer<Listener<HTTP.State>>(state)
+        _states.append(WeakContainer<Listener<HTTP.State>>(state))
         state.value = _state
     }
     
     public func overlay(_ view:HTTPOverlay){
         
-        _overlays <- HTTP.WeakOverlay(view)
+        _overlays.append(HTTP.WeakOverlay(view))// <- HTTP.WeakOverlay(view)
         if case .loading = _state { view.startNetOverlay() }
         
     }

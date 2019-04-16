@@ -5,6 +5,10 @@
 //  Created by 李招利 on 2018/9/30.
 //
 
+#if canImport(JSON)
+import JSON
+#endif
+
 extension HTTP {
     
     open class JSONDecoder : HTTPResponeDecoder {
@@ -17,7 +21,7 @@ extension HTTP {
             
             var result:JSON = .null
             do {
-                result = try Basic.JSONDecoder().decode(JSON.self, from: data)
+                result = try data.parseJSON()
             } catch (let error as DecodingError) {
                 throw HTTP.ResponseError.unknowJSONData(data, error)
             } catch (let error) {

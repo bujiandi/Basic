@@ -6,6 +6,10 @@
 //  Copyright © 2018年 慧趣小歪. All rights reserved.
 //
 
+
+#if canImport(Basic)
+import Basic
+#endif
 import Foundation
 
 

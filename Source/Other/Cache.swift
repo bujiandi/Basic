@@ -63,6 +63,30 @@ open class Cache<Key: Hashable, Element> {
         }
         
     }
+    
+    public struct Index: RawRepresentable, ExpressibleByIntegerLiteral {
+        public let rawValue: Int
+        public typealias IntegerLiteralType = Int
+        
+        public init(integerLiteral value: Int) {
+            rawValue = value
+        }
+        
+        public init(_ value: Int) {
+            rawValue = value
+        }
+        
+        public init(rawValue value: Int) {
+            rawValue = value
+        }
+    }
+}
+
+extension Cache.Index : Comparable {
+    @inlinable public static func < (lhs: Cache.Index, rhs: Cache.Index) -> Bool { return lhs.rawValue <  rhs.rawValue }
+    @inlinable public static func <=(lhs: Cache.Index, rhs: Cache.Index) -> Bool { return lhs.rawValue <= rhs.rawValue }
+    @inlinable public static func >=(lhs: Cache.Index, rhs: Cache.Index) -> Bool { return lhs.rawValue >= rhs.rawValue }
+    @inlinable public static func > (lhs: Cache.Index, rhs: Cache.Index) -> Bool { return lhs.rawValue >  rhs.rawValue }
 }
 
 extension Cache where Element : Costable {
@@ -109,10 +133,10 @@ extension Cache {
 }
 
 
+
 extension Cache : MutableCollection, Sequence {
-    
+ 
     public typealias _Element = Element
-    public typealias Index = JSON.ObjectIndex
     public typealias SubSequence = Cache<Key, Element>
     public typealias Iterator =  AnyIterator<(Key, Element)>
     public typealias IndexDistance = Int
@@ -130,7 +154,7 @@ extension Cache : MutableCollection, Sequence {
             _map[newKey] = (1, newValue.1)
         }
     }
-    
+
     public var startIndex:Index { return Index(rawValue: 0) }
     public var endIndex:Index { return Index(rawValue: Swift.max(_keys.count - 1, 0)) }
     

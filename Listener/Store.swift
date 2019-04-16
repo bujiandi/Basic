@@ -5,6 +5,10 @@
 //  Created by 慧趣小歪 on 2018/11/24.
 //
 
+
+#if canImport(Operator)
+import Operator
+#endif
 #if canImport(Foundation)
 import Foundation
 #endif
@@ -141,6 +145,7 @@ extension Store {
     
 }
 
+#if canImport(Operator)
 extension Store {
     
     @inline(__always)
@@ -164,6 +169,7 @@ extension Store {
         }
     }
 }
+#endif
 
 
 extension Store : CustomStringConvertible where T : CustomStringConvertible {

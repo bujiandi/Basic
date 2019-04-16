@@ -141,13 +141,6 @@ extension Optional {
     }
 }
 
-extension Optional where Wrapped == JSON {
-    
-    public var safeUnwrap:Wrapped {
-        return self ?? .null
-    }
-}
-
 extension Optional where Wrapped : ExpressibleByStringLiteral {
     
     public var safeUnwrap:Wrapped {

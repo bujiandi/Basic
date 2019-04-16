@@ -217,7 +217,7 @@ extension JSON {
             sortedKeys = false
         }
         #else
-        if #available(iOSApplicationExtension 11.0, *) {
+        if #available(iOS 11.0, *) {
             sortedKeys = opt.contains(.sortedKeys)
         } else {
             sortedKeys = false
@@ -256,7 +256,7 @@ extension JSON.Array {
             sortedKeys = false
         }
         #else
-        if #available(iOSApplicationExtension 11.0, *) {
+        if #available(iOS 11.0, *) {
             sortedKeys = opt.contains(.sortedKeys)
         } else {
             sortedKeys = false
@@ -294,7 +294,7 @@ extension JSON.Object {
             sortedKeys = false
         }
         #else
-        if #available(iOSApplicationExtension 11.0, *) {
+        if #available(iOS 11.0, *) {
             sortedKeys = opt.contains(.sortedKeys)
         } else {
             sortedKeys = false

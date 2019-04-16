@@ -8,24 +8,18 @@
 infix /* 中置 */ operator <-? : AssignmentPrecedence
 infix /* 中置 */ operator <- : AssignmentPrecedence
 
-
-
-@inline(__always)
-public func <-<C, E>(lhs: inout C, rhs: E) where C : RangeReplaceableCollection, C.Element == E {
+@inlinable public func <-<C, E>(lhs: inout C, rhs: E) where C : RangeReplaceableCollection, C.Element == E {
     lhs.append(rhs)
 }
 
-@inline(__always)
-public func <-?<C, E>(lhs: inout C, rhs: E?) where C : RangeReplaceableCollection, C.Element == E {
+@inlinable public func <-?<C, E>(lhs: inout C, rhs: E?) where C : RangeReplaceableCollection, C.Element == E {
     if let value = rhs { lhs.append(value) }
 }
 
-@inline(__always)
-public func <-(lhs: inout String, rhs: String) {
+@inlinable public func <-(lhs: inout String, rhs: String) {
     lhs.append(rhs)
 }
 
-@inline(__always)
-public func <-(lhs: inout String, rhs: String?) {
+@inlinable public func <-?(lhs: inout String, rhs: String?) {
     if let value = rhs { lhs.append(value) }
 }

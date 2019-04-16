@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Basic
 
 fileprivate final class WeakNetGroup {
     weak var group:NetGroup?
@@ -99,7 +100,7 @@ open class NetGroup: Resumable {
     
     public func change(state:Listener<State>) -> Self {
         
-        _states <- WeakContainer<Listener<State>>(state)
+        _states.append(WeakContainer<Listener<State>>(state))
         state.value = _isLoading ? .loading : .waiting
         
         return self
@@ -133,7 +134,7 @@ open class NetGroup: Resumable {
     
     public func overlay(_ view:NetOverlay) -> Self {
         
-        _overlays <- WeakOverlay(view)
+        _overlays.append(WeakOverlay(view))
         if _isLoading { view.startNetOverlay() }
 
         return self
