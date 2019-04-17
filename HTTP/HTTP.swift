@@ -9,6 +9,8 @@
 import Basic
 #endif
 
+import Foundation
+
 public struct HTTP {
     
     // 网络请求状态

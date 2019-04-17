@@ -5,6 +5,8 @@
 //  Created by 李招利 on 2018/10/9.
 //
 
+import Foundation
+
 #if os(iOS)
 //extension URL {
 //    

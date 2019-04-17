@@ -5,6 +5,8 @@
 //  Created by 李招利 on 2018/9/30.
 //
 
+import Foundation
+
 extension HTTP.Client {
     
     // 创建一个请求队列

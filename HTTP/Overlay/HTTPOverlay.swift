@@ -5,6 +5,8 @@
 //  Created by 李招利 on 2018/10/29.
 //
 
+import Foundation
+
 public protocol HTTPOverlay : class {
     
     func startNetOverlay()

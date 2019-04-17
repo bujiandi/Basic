@@ -5,7 +5,7 @@
 //  Created by 李招利 on 2018/9/28.
 //
 
-
+import Foundation
 
 @_transparent
 func rotateLeft(_ value: UInt8, by: UInt8) -> UInt8 {

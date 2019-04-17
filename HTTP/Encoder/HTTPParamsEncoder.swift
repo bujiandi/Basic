@@ -6,6 +6,8 @@
 //
 
 import Basic
+import Foundation
+
 
 extension HTTP {
     

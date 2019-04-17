@@ -9,6 +9,7 @@
 #if canImport(Basic)
 import Basic
 #endif
+import Foundation
 
 private let newLineCRLF = "\r\n".data(using: .utf8)!
 

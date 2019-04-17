@@ -8,6 +8,7 @@
 #if canImport(JSON)
 import JSON
 #endif
+import Foundation
 
 extension HTTP {
     

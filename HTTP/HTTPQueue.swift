@@ -8,6 +8,7 @@
 #if canImport(Basic)
 import Basic
 #endif
+import Foundation
 
 extension HTTP.Queue {
     
